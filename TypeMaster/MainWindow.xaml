@@ -1,0 +1,60 @@
+﻿<Window x:Class="TypeMaster.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TypeMaster"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Background="#FFC8C8C8">
+
+    <Window.Resources>
+        <Style x:Key="NormalButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="LightGray" />
+            <Setter Property="BorderBrush" Value="Gray" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            Background="{TemplateBinding Background}" 
+                            Padding="30 10"
+                            CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="HoverButtonStyle" TargetType="Button" BasedOn="{StaticResource NormalButtonStyle}">
+            <Setter Property="Background" Value="LightBlue" />
+            <Setter Property="BorderBrush" Value="Blue" />
+            <!-- Dodaj inne zmiany wyglądu, jakie chcesz widzieć po najechaniu -->
+        </Style>
+    </Window.Resources>
+
+
+
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            
+            <TextBlock TextWrapping="Wrap" Text="Type Master" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" FontFamily="Tahoma" Foreground="#FF0090FF" Margin="0,0,0,100"/>
+            <Button Content="Poziom trudności"
+                    HorizontalAlignment="Center"  
+                    VerticalAlignment="Top"
+                    BorderBrush="#FF0090FF"
+                    Style="{StaticResource NormalButtonStyle}" 
+                    MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"
+                    Click="GetDifficultyView"/>
+            
+        </StackPanel>
+
+
+
+
+    </Grid>
+</Window>
